@@ -1,0 +1,23 @@
+.sidebar-list {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.sidebar-list li {
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.sidebar-list li:before {
+  content: "";
+  width: 1px; 
+  height: calc(100% + 30px); 
+  background-color: #fff; 
+  position: absolute;
+  top: -5px;
+  left: -10px;
+}
+
+.sidebar-list li:last-child:before {
+  display: none;
+}
