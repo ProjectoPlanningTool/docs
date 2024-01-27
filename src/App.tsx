@@ -125,15 +125,6 @@ function App() {
       // documentId:null
     };
     try {
-      // axios({
-      // 			method: 'post',
-      // 			url: ,
-      // 			data: {
-      // 			  firstName: 'Fred',
-      // 			  lastName: 'Flintstone'
-      // 			}
-      // 		  });
-      console.log("import.meta.env.BASE_URL", import.meta.env.VITE_BASE_URL);
       const data = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/docs/createPage`,
         newPage
@@ -197,7 +188,7 @@ function App() {
           <Spinner size="xl" />
         </Flex>
       )}
-      {/* {!isLoggedIn && (
+      {!isLoggedIn && (
         <Flex
           p={4}
           w={{ base: "100%", lg: "25%" }}
@@ -214,7 +205,7 @@ function App() {
             handleSubmit={(e) => handleSubmit(e)}
           />
         </Flex>
-      )} */}
+      )}
       <Grid
         templateAreas={{ base: `"nav" "main"`, lg: `"nav nav" "aside main"` }}
         templateColumns={{ base: "1fr", lg: "250px 1fr" }}
