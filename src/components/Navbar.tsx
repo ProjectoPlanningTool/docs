@@ -101,8 +101,8 @@ function Navbar({
 							<DrawerHeader>Create your Notes 😀</DrawerHeader>
 
 							<DrawerBody>
-								{pages.map((page) => (
-									<React.Fragment key={page.id}>
+								{pages?.map((page) => (
+									<React.Fragment key={page.uniqueId}>
 										<Item
 											page={page}
 											addSubPage={addSubPage}

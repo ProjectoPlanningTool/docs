@@ -18,10 +18,11 @@ function Sidebar({
 	setActivePage,
 	activePage,
 }: Props) {
+	
 	return (
 		<>
-			{pages.map((page) => (
-				<React.Fragment key={page.id}>
+			{pages?.map((page) => (
+				<React.Fragment key={page.uniqueId}>
 					<Item
 						page={page}
 						addSubPage={addSubPage}
