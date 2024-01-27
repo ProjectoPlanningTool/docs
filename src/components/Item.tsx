@@ -1,17 +1,17 @@
 import {
 	Flex,
+	IconButton,
 	Menu,
 	MenuButton,
-	IconButton,
-	MenuList,
 	MenuItem,
+	MenuList,
 	Text,
 	VStack,
 } from "@chakra-ui/react";
+import axios from "axios";
 import { FaEllipsisVertical } from "react-icons/fa6";
-import "../assets/css/Item.css";
 import { Page } from "../App";
-import axios from "axios"
+import "../assets/css/Item.css";
 
 interface Props {
 	page: Page;
@@ -24,14 +24,17 @@ function Item({ page, addSubPage, setActivePage, activePage }: Props) {
 	const handleClick = () => {
 		setActivePage(page);
 	};
-	const deletePageHandler = async ()=>{
-		try{
-			const data = await axios.post( `${import.meta.env.VITE_BASE_URL}/docs/removePage`,page)
-			console.log("🚀 ~ deletePageHandler ~ data:", data)
-		}catch(err){
-			console.log("err",err)
+	const deletePageHandler = async () => {
+		try {
+			const data = await axios.post(
+				`${import.meta.env.VITE_BASE_URL}/docs/removePage`,
+				page,
+			);
+			console.log("🚀 ~ deletePageHandler ~ data:", data);
+		} catch (err) {
+			console.log("err", err);
 		}
-	}
+	};
 
 	const isActive = activePage?.uniqueId === page.uniqueId;
 	return (
@@ -60,10 +63,12 @@ function Item({ page, addSubPage, setActivePage, activePage }: Props) {
 						<MenuItem command="⌘N" onClick={() => addSubPage(page)}>
 							Add Sub Page
 						</MenuItem>
-						<MenuItem onClick ={()=>{
-							deletePageHandler(page)
-						}}>
-						Delete
+						<MenuItem
+							onClick={() => {
+								deletePageHandler();
+							}}
+						>
+							Delete
 						</MenuItem>
 					</MenuList>
 				</Menu>
